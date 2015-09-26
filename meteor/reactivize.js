@@ -162,8 +162,11 @@ Template.sortable.rendered = function () {
 		} else {
 			// do nothing - inserted after the last element
 		}
-		// remove the dropped HTMLElement from the list because we have inserted it in the collection, which will update the template
-		itemEl.parentElement.removeChild(itemEl);
+		
+		if (itemEl.parentElement) {
+			// remove the dropped HTMLElement from the list because we have inserted it in the collection, which will update the template
+			itemEl.parentElement.removeChild(itemEl);
+		}
 	};
 
 	// element was removed by dragging into another list
